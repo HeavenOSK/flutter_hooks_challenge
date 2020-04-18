@@ -4,6 +4,7 @@ import 'package:hooks_todo/models/models.dart';
 import 'package:hooks_todo/models/tasks/tasks_manager.dart';
 import 'package:provider/provider.dart';
 
+import 'hook.dart';
 import 'input_bottom_sheet/input_bottom_sheet.dart';
 
 /// A page which manages [Tasks].
@@ -18,11 +19,13 @@ class Home extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
+      body: ListView.separated(
+        separatorBuilder: (_, _index) => const Divider(),
+        itemBuilder: (_, index) {
           final task = tasks.tasks[index];
-
-          return Text(task.body);
+          return ListTile(
+            title: Text(task.body),
+          );
         },
         itemCount: tasks.tasks.length,
       ),
@@ -39,12 +42,4 @@ class Home extends HookWidget {
       ),
     );
   }
-}
-
-Tasks useTasks(Stream<Tasks> tasks) {
-  final _tasks = useStream(tasks);
-  if (!_tasks.hasData) {
-    return Tasks();
-  }
-  return _tasks.data;
 }

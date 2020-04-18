@@ -43,13 +43,15 @@ class TaskInputSheet extends HookWidget {
               decoration: const InputDecoration(
                 hintText: '新しいタスク',
               ),
-              onSubmitted: onSubmitted,
+              onSubmitted: (text) {
+                onSubmitted(text);
+                Navigator.of(context).maybePop();
+              },
             ),
           ),
           SaveButton(
             onTap: () {
               onSubmitted(controller.text);
-              Navigator.of(context).maybePop();
             },
           ),
         ],
