@@ -1,3 +1,4 @@
+import 'package:disposable_provider/disposable_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,9 +9,8 @@ void run() {
   runApp(
     MultiProvider(
       providers: [
-        Provider<TasksManager>(
+        DisposableProvider<TasksManager>(
           create: (_) => TasksManager(),
-          dispose: (_, manager) => manager.dispose(),
         ),
       ],
       child: const App(),

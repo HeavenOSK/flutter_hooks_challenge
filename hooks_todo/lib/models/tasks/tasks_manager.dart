@@ -3,6 +3,7 @@ import 'package:rxdart/rxdart.dart';
 
 import 'tasks.dart';
 
+/// A model which manages [Tasks].
 class TasksManager extends Disposable {
   final _tasks = BehaviorSubject.seeded(Tasks());
 
