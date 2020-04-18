@@ -12,16 +12,10 @@ T _$identity<T>(T value) => value;
 class _$TaskTearOff {
   const _$TaskTearOff();
 
-  _Task call(
-      {@required String body,
-      bool completed = false,
-      @nullable DateTime dueDate,
-      @required DateTime createdAt}) {
+  _Task call({@required String body, @nullable DateTime dueDate}) {
     return _Task(
       body: body,
-      completed: completed,
       dueDate: dueDate,
-      createdAt: createdAt,
     );
   }
 }
@@ -31,10 +25,8 @@ const $Task = _$TaskTearOff();
 
 mixin _$Task {
   String get body;
-  bool get completed;
   @nullable
   DateTime get dueDate;
-  DateTime get createdAt;
 
   $TaskCopyWith<Task> get copyWith;
 }
@@ -42,11 +34,7 @@ mixin _$Task {
 abstract class $TaskCopyWith<$Res> {
   factory $TaskCopyWith(Task value, $Res Function(Task) then) =
       _$TaskCopyWithImpl<$Res>;
-  $Res call(
-      {String body,
-      bool completed,
-      @nullable DateTime dueDate,
-      DateTime createdAt});
+  $Res call({String body, @nullable DateTime dueDate});
 }
 
 class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
@@ -59,16 +47,11 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
   @override
   $Res call({
     Object body = freezed,
-    Object completed = freezed,
     Object dueDate = freezed,
-    Object createdAt = freezed,
   }) {
     return _then(_value.copyWith(
       body: body == freezed ? _value.body : body as String,
-      completed: completed == freezed ? _value.completed : completed as bool,
       dueDate: dueDate == freezed ? _value.dueDate : dueDate as DateTime,
-      createdAt:
-          createdAt == freezed ? _value.createdAt : createdAt as DateTime,
     ));
   }
 }
@@ -77,11 +60,7 @@ abstract class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
   factory _$TaskCopyWith(_Task value, $Res Function(_Task) then) =
       __$TaskCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String body,
-      bool completed,
-      @nullable DateTime dueDate,
-      DateTime createdAt});
+  $Res call({String body, @nullable DateTime dueDate});
 }
 
 class __$TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
@@ -95,44 +74,28 @@ class __$TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
   @override
   $Res call({
     Object body = freezed,
-    Object completed = freezed,
     Object dueDate = freezed,
-    Object createdAt = freezed,
   }) {
     return _then(_Task(
       body: body == freezed ? _value.body : body as String,
-      completed: completed == freezed ? _value.completed : completed as bool,
       dueDate: dueDate == freezed ? _value.dueDate : dueDate as DateTime,
-      createdAt:
-          createdAt == freezed ? _value.createdAt : createdAt as DateTime,
     ));
   }
 }
 
 class _$_Task implements _Task {
-  const _$_Task(
-      {@required this.body,
-      this.completed = false,
-      @nullable this.dueDate,
-      @required this.createdAt})
-      : assert(body != null),
-        assert(completed != null),
-        assert(createdAt != null);
+  const _$_Task({@required this.body, @nullable this.dueDate})
+      : assert(body != null);
 
   @override
   final String body;
-  @JsonKey(defaultValue: false)
-  @override
-  final bool completed;
   @override
   @nullable
   final DateTime dueDate;
-  @override
-  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'Task(body: $body, completed: $completed, dueDate: $dueDate, createdAt: $createdAt)';
+    return 'Task(body: $body, dueDate: $dueDate)';
   }
 
   @override
@@ -141,24 +104,15 @@ class _$_Task implements _Task {
         (other is _Task &&
             (identical(other.body, body) ||
                 const DeepCollectionEquality().equals(other.body, body)) &&
-            (identical(other.completed, completed) ||
-                const DeepCollectionEquality()
-                    .equals(other.completed, completed)) &&
             (identical(other.dueDate, dueDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.dueDate, dueDate)) &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)));
+                const DeepCollectionEquality().equals(other.dueDate, dueDate)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(body) ^
-      const DeepCollectionEquality().hash(completed) ^
-      const DeepCollectionEquality().hash(dueDate) ^
-      const DeepCollectionEquality().hash(createdAt);
+      const DeepCollectionEquality().hash(dueDate);
 
   @override
   _$TaskCopyWith<_Task> get copyWith =>
@@ -166,21 +120,14 @@ class _$_Task implements _Task {
 }
 
 abstract class _Task implements Task {
-  const factory _Task(
-      {@required String body,
-      bool completed,
-      @nullable DateTime dueDate,
-      @required DateTime createdAt}) = _$_Task;
+  const factory _Task({@required String body, @nullable DateTime dueDate}) =
+      _$_Task;
 
   @override
   String get body;
   @override
-  bool get completed;
-  @override
   @nullable
   DateTime get dueDate;
-  @override
-  DateTime get createdAt;
   @override
   _$TaskCopyWith<_Task> get copyWith;
 }

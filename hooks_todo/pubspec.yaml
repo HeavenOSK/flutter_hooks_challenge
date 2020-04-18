@@ -11,12 +11,15 @@ dependencies:
   cupertino_icons: ^0.1.2
   provider: 4.1.0-dev
   subscription_holder: any
+  disposable_provider: any
   freezed_annotation: any
   flutter_hooks: ^0.9.0
+  rxdart:
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: any
+  pedantic_mono: any
   freezed: any
   json_serializable: any
 flutter:

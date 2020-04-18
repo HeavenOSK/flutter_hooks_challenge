@@ -77,7 +77,7 @@ class __$TasksCopyWithImpl<$Res> extends _$TasksCopyWithImpl<$Res>
 }
 
 class _$_Tasks implements _Tasks {
-  const _$_Tasks({this.tasks = const <Task>[]}) : assert(tasks != null);
+  _$_Tasks({this.tasks = const <Task>[]}) : assert(tasks != null);
 
   @JsonKey(defaultValue: const <Task>[])
   @override
@@ -106,7 +106,7 @@ class _$_Tasks implements _Tasks {
 }
 
 abstract class _Tasks implements Tasks {
-  const factory _Tasks({List<Task> tasks}) = _$_Tasks;
+  factory _Tasks({List<Task> tasks}) = _$_Tasks;
 
   @override
   List<Task> get tasks;

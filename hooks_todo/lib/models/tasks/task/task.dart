@@ -7,8 +7,6 @@ part 'task.freezed.dart';
 abstract class Task with _$Task {
   const factory Task({
     @required String body,
-    @Default(false) bool completed,
     @nullable DateTime dueDate,
-    @required DateTime createdAt,
   }) = _Task;
 }
